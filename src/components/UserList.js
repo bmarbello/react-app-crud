@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserList = ({ users, deleteUser, editUser }) => (
+const UserList = React.memo(({ users, deleteUser, editUser }) => (
   <table>
     <thead>
       <tr>
@@ -28,6 +28,6 @@ const UserList = ({ users, deleteUser, editUser }) => (
       )}
     </tbody>
   </table>
-);
+));
 
 export default UserList;
