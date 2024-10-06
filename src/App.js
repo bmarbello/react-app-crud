@@ -1,5 +1,5 @@
 import './App.css';
-
+import { ThemeContext } from './ThemeContext';
 
 import React, { useState, useMemo, useCallback, Suspense, useContext } from 'react';
 import UserForm from './components/UserForm';
@@ -10,6 +10,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [editing, setEditing] = useState(false);
   const [currentUser, setCurrentUser] = useState({ id: null, name: '', email: '' });
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   // Calcular el número de usuarios usando useMemo
   const userCount = useMemo(() => {
@@ -39,8 +40,11 @@ const App = () => {
 
 
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
       <h1>CRUD</h1>
+      <button onClick={toggleTheme}>
+        Cambiar a {theme === 'light' ? 'Dark' : 'Light'}
+      </button>
       <p>Usuarios registrados: {userCount}</p>
       <div>
         <h2>{editing ? 'Editar usuario' : 'Añadir usuario'}</h2>

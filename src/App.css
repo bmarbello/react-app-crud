@@ -5,6 +5,17 @@
   font-family: Arial, sans-serif;
 }
 
+.light {
+  background-color: white;
+  color: black;
+}
+
+/* Estilos para el tema oscuro */
+.dark {
+  background-color: black;
+  color: white;
+}
+
 table {
   width: 100%;
   margin-top: 20px;
